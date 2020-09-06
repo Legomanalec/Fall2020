@@ -1,0 +1,104 @@
+---
+title: "DS202HW2"
+author: "Alec Meyer"
+date: "9/6/2020"
+output: html_document
+---
+## **Question 1 - Example Question and Answer**
+```{r}
+a0 <- 1
+a0
+```
+
+\
+
+## **Question 2 - R Commands**
+#### part 1:
+```{r}
+
+far <- c(85, 67) 
+cel <- (far - 32) * (5/9)
+cel
+```
+
+\
+
+#### part 2:
+```{r, warning=FALSE}
+vec200 <- (200: 1)
+replace <- c(1, 1, 0)
+vec200 <- vec200 * replace
+vec200
+```
+
+\
+
+#### part 3:
+```{r}
+squares <- c(1: 2001)
+squares <- squares[sqrt(squares) == round(sqrt(squares))]
+squares
+```
+
+\
+
+## **Question 3 - Cars and Mileage**
+#### part 1:
+```{r, warning=FALSE}
+library(ggplot2)
+mpgHwy <- mpg[order(mpg$hwy), ]
+worst5 <- head(mpgHwy, n = 5)
+worst5
+```
+
+\
+
+#### part 2: 
+```{r}
+
+numPickup <- nrow(mpg[mpg$class == 'pickup', ])
+numPickup
+
+```
+
+\
+
+#### part 3:
+```{r}
+
+plot(mpg$hwy, mpg$cty, main = 'City and Highway', xlab = 'Highway', ylab = 'City')
+
+```
+
+This graph represents a positive correlation between the MPG in a city vs a highway. It makes sense that a greater city MPG would result in a greater highway MPG and vice versa.
+
+\
+
+#### part 4:
+```{r}
+ford <- mpg[mpg$manufacturer == 'ford', ]
+toyota <- mpg[mpg$manufacturer == 'toyota', ]
+ford$efficiency <- (ford$cty + ford$hwy)
+toyota$efficiency <- (toyota$cty + toyota$hwy)
+
+hist(ford$efficiency, breaks=10, xlim=c(25,60), col=rgb(1,0,0,0.5), xlab="MPG", ylab="Amount Manufactured", main="Distribution of Cars per Manufacturer by MPG" )
+
+hist(toyota$efficiency, breaks=15, xlim=c(25,60), col=rgb(0,0,1,0.5), add=T)
+
+legend("topright", legend=c("Ford","Toyota"), col=c(rgb(1,0,0,0.5), rgb(0,0,1,0.5)), pt.cex=2, pch=15 )
+
+```
+
+Based off of this comparative histogram of both Ford and Toyota vheicles based on their MPG, we can see that it is right skewed by Ford while Toyota is fairly even and even slightly left skewed. This being said we can see that Toyota has manufactured more cars with a higher MPG than Toyota.
+
+This can also be represented by the average MPG per car by manufacturer shown below:
+```{r}
+#Ford avg MPG
+fordMean <- mean(ford$efficiency)
+fordMean
+
+#Toyota avg MPG
+toyotaMean <- mean(toyota$efficiency)
+toyotaMean
+```
+This shows, that on average, Toyota manufactures vehicles with a greater MPG than Ford since 33.36MPG < 43.44 MPG. Therefore, Toyota produces cars with a higher fuel efficiency.
