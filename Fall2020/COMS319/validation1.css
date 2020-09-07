@@ -1,0 +1,13 @@
+body{
+	background-color: powderblue;
+}
+form{
+	background: #FFD013;
+	background: -moz-radial-gradient(center, #FFD013 0%, #FFFFFF 50%, #D81D1D 100%);
+	background: -webkit-radial-gradient(center, #FFD013 0%, #FFFFFF 50%, #D81D1D 100%);
+	background: radial-gradient(ellipse at center, #FFD013 0%, #FFFFFF 50%, #D81D1D 100%);
+	
+	text-align: center;
+	border: 10px inset #1C6EA4;
+	text-shadow: 1px 1px 14px #1C6EA4;
+}
