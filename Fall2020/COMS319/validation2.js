@@ -10,6 +10,10 @@ function validateForm(correct, wrong)
 		alert(alertStr);
 		return false;
 	}
+	else
+	{
+		window.open("success.html");
+	}
 }
 
 //This function checks the status of each field.
