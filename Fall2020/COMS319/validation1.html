@@ -3,9 +3,12 @@
 	<title>
 	Validation Form
 	</title>
-	
+	<head>
+		<script	src="validation1.js"></script>
+		<link rel="stylesheet" href="validation1.css">
+	</head>
 	<body>
-		<form name="form" action="/action_page.php" onsubmit="return validateForm()" method="post">
+		<form name="form" onsubmit="return validateForm('correct.png', 'wrong.png', 'validation2.html')" method="post">
 			<div id="first">
 			<label for="first">First name</label><br>
 			<input type="text" id="first" name="first">
@@ -39,9 +42,7 @@
 				<option value="arizona">Arizona</option>
 			</select>
 			</div><br>
-			<input id="Continue" type="button" value="Continue" 
-				onclick="validateForm('correct.png', 'wrong.png', 'validation2.html');">
-			<script	src="validation1.js"></script>
+			<input type="submit" value="Continue">	
 		</form>
 	</body>
 </html>

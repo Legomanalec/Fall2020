@@ -1,16 +1,13 @@
 function validateForm(correct, wrong, nextWindow)
 {
-	var alertStatus = false;
-	var alertStr = "";
-	
+	alertStatus = false;
 	fieldCheck("first", correct, wrong);
 	fieldCheck("last", correct, wrong);
 	fieldCheck("gender", correct, wrong);
 	fieldCheck("state", correct, wrong);
-	
 	if(alertStatus)
 	{
-		alert(alertStr);
+		alert("Please fill out all required fields correctly");
 		return false;
 	}
 	else
@@ -24,10 +21,9 @@ function fieldCheck(fieldId, correct, wrong)
 {
 	var temp = document.forms["form"][fieldId].value;
 	
-	if (temp == "")
+	if (temp == "" || !temp.match(/^[a-z0-9]+$/i))
 	{
 		alertStatus = true;
-		alertStr = fieldId + " cannot be blank \n";
 		imagePlace(wrong, fieldId);
 	}
 	else
