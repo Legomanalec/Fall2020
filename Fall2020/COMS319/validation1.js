@@ -1,13 +1,14 @@
 function validateForm(correct, wrong, nextWindow)
 {
 	alertStatus = false;
+	alertStr = "";
 	fieldCheck("first", correct, wrong);
 	fieldCheck("last", correct, wrong);
 	fieldCheck("gender", correct, wrong);
 	fieldCheck("state", correct, wrong);
 	if(alertStatus)
 	{
-		alert("Please fill out all required fields correctly");
+		alert(alertStr);
 		return false;
 	}
 	else
@@ -23,6 +24,14 @@ function fieldCheck(fieldId, correct, wrong)
 	
 	if (temp == "" || !temp.match(/^[a-z0-9]+$/i))
 	{
+		if(fieldId == "first" || fieldId == "last")
+		{
+			alertStr += fieldId + " name must be alphanumeric\n";
+		}
+		else
+		{
+			alertStr += fieldId + " cannot be left blank\n";
+		}
 		alertStatus = true;
 		imagePlace(wrong, fieldId);
 	}

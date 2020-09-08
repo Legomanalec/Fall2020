@@ -1,12 +1,13 @@
 function validateForm(correct, wrong)
 {
 	alertStatus = false;
+	alertStr = "";
 	fieldCheck("email", correct, wrong);
 	fieldCheck("phone", correct, wrong);
 	fieldCheck("address", correct, wrong);
 	if(alertStatus)
 	{
-		alert("Please fill out all required fields correctly");
+		alert(alertStr);
 		return false;
 	}
 }
@@ -25,6 +26,19 @@ function fieldCheck(fieldId, correct, wrong)
 		|| (fieldId == "phone" && !temp.match(phoneFormat))
 		|| (fieldId == "address" && !temp.match(addressFormat)))
 	{
+		
+		if (fieldId == "email")
+		{
+			alertStr += "email must be in the form xxx@xxx.xxxx\n";
+		}
+		else if (fieldId == "phone")
+		{
+			alertStr += "phone must be in the form xxx-xxx-xxxx or xxxxxxxxxx\n";
+		}
+		else if (fieldId == "address")
+		{
+			alertStr += "address must be in the form city & state. example: Ames,IA\n";
+		}
 		alertStatus = true;
 		imagePlace(wrong, fieldId);
 	}
