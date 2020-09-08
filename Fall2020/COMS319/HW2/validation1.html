@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<title>
+	Validation Form
+	</title>
+	<head>
+		<script	src="validation1.js"></script>
+		<link rel="stylesheet" href="validation1.css">
+	</head>
+	<body>
+		<form name="form" onsubmit="return validateForm('correct.png', 'wrong.png', 'validation2.html')" method="post">
+			<div id="first">
+			<label for="first">First name</label><br>
+			<input type="text" id="first" name="first">
+			</div><br>
+			<div id="last">
+			<label for="last">Last name</label><br>
+			<input type="text" id="last" name="last">
+			</div><br>
+			<div id="gender">
+			<label for="gender">Gender</label><br>
+			<select id="gender" name="gender">
+				<option value=""></option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other">Other</option>
+			</select>
+			</div><br>
+			<div id="state">
+			<label for="state">State</label><br>
+			<select id="state" name="state">
+				<option value=""></option>
+				<option value="california">California</option>
+				<option value="florida">Florida</option>
+				<option value="newYork">New York</option>
+				<option value="texas">Texas</option>
+				<option value="hawaii">Hawaii</option>
+				<option value="washington">Washington</option>
+				<option value="colorado">Colorado</option>
+				<option value="virginia">Virginia</option>
+				<option value="iowa">Iowa</option>
+				<option value="arizona">Arizona</option>
+			</select>
+			</div><br>
+			<input type="submit" id="submit" value="Continue">	
+		</form>
+	</body>
+</html>

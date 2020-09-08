@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<title>
+		Contact Information
+	</title>
+	<head>
+		<script	src="validation2.js"></script>
+		<link rel="stylesheet" href="validation1.css">
+	</head>
+	<body>
+		<form name="form" onsubmit="return validateForm('correct.png', 'wrong.png')">
+			<div id="email">
+			<label for="email">Email</label><br>
+			<input type="text" id="email" name="email">
+			</div><br>
+			<div id="phone">
+			<label for="phone">Phone#</label><br>
+			<input type="text" id="phone" name="phone">
+			</div><br>
+			<div id="address">
+			<label for="address">Address</label><br>
+			<input type="text" id="address" name="address">
+			</div><br>
+			<input type="submit" id="submit" value="Submit">
+		</form>
+	</body>
+
+</html>
