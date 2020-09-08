@@ -4,7 +4,7 @@ body{
 form{
 	background-color: powderblue;
 	text-align: center;
-
+	padding: 200px 0;
 	
 }
 #first, #last, #gender, #state, #submit, #email, #phone, #address{
