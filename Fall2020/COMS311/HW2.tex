@@ -1,0 +1,66 @@
+\title{Homework 2 COM S 311 }
+\author{Alec Meyer}
+
+\date{\today}
+
+\documentclass[11pt]{article}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{amssymb}
+\usepackage{listings}
+
+\begin{document}
+\maketitle
+
+
+
+\section*{Question 1}
+a.\\*
+\tab $2^{2n} \in O(2^n)$\\*\\*
+\tab Claim: $2^{2n} \notin O(2^n)$\\*\\*
+\tab $f(n) \leq c \times g(n)$\\*\\*
+\tab f(n) = $2^{2n}$, g(n) = $2^n$\\*\\*
+\tab plug in f(n) and g(n)\\*
+\tab $2^{2n} \leq c \times 2^n$\\*
+\tab $\frac{2^{2n}}{2^n} \leq c$\\*
+\tab $2^n \leq c$\\*\\*
+\tab Here we have a constant 'c' being greater 
+than or equal to a function of n. This is not 
+possible as $2^n$ will surpass the value of c.
+Therefore, since there is no constant value c
+to satisfy this claim we know that this statement
+is false.\\*
+\tab $\therefore 2^{2n} \notin O(2^n)$\*
+b.\\*\\*\\*
+
+
+\section*{Question 2}
+a.\\*
+\tab Inner:\\*
+\tab $$\sum_{k=1}^{j} c_1 = c_1j$$\\*
+\tab Middle:\\*
+\tab $$\sum_{j=i}^{n} (c_2 + c_1j)$$\\*
+\tab $$\sum_{j=i}^{n} {c_2 + \sum_{j=i}^{n} c_1j}$$\\*
+\tab $$\sum_{j=i}^{n} {c_1j} = c_1(\frac{n(n+1)}{2} - \frac{i(i-1)}{2}$$\\*
+\tab $$\sum_{j=i}^{n} {c_2} = c_2(n - i + 1)$$\\*
+\tab Outer:\\*
+\tab $$\sum_{i=1}^{n-1}[c_2(n - i + 1) + c_1(\frac{n(n+1)}{2} - \frac{i(i-1)}{2})]$$\\*
+\tab $$\sum_{i=1}^{n-1}[c_2n - c_2i + c_2 + \frac{c_1n^2}{2} + \frac{c_1n}{2} - \frac{c_1i^2}{2} - \frac{c_1i}{2}]$$\\*
+\tab$$ = c_2n^2 - \frac{c_2n(n+1)}{2} - 1 + c_2 + \frac{c_1n^3}{2} + \frac{c_1n^2}{2} - \frac{n^2(n+1)}{2} - 1 - \frac{n(n+1)}{2} - 1$$\\*
+\tab $$\in O(n^3)$$\\*
+
+
+\section*{Question 3}
+a.\\*
+\begin{lstlisting}
+for(int i = 0; i < A.size; i++)
+	if(binarySearch(T-A[i]))
+		TRUE
+FALSE
+\end{lstlisting}
+
+\tab FOR loop time:\\*
+\tab $$\sum_{i=0}^{n}Binary Search$$\\*
+\tab We know that Binary Search is O(logn)\\*
+\tab Binary Search runs n times, therefore the
+runtime of this algorithm is O(nlogn)\\*
+\end{document}
