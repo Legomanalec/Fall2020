@@ -1,0 +1,20 @@
+---
+title: "Lab2Investigation"
+output: html_document
+---
+
+```{r}
+choco <- read.csv("https://raw.githubusercontent.com/xdaiISU/ds202materials/master/hwlabs/data/choco.csv") 
+str(choco)
+```
+
+Part 1.<br />
+Based on the histogram, ratings are fairly left skewed resulting in higher than average ratings for the chocolates, there are though a couple outliers around the 'one' rating.
+```{r}
+boxplot(choco$Rating, main="Boxplot of Chocolate Ratings")
+hist(choco$Rating, breaks = 10, main="Histogram of Chocolate Ratings", xlab="Rating", ylab="Occurance")
+```
+
+Part 2.<br />
+```{r}
+barplot(choco$Date, choco$Rating)
