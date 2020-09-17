@@ -1,0 +1,80 @@
+\title{Homework 2 COM S 311 }
+\author{Alec Meyer}
+
+\date{\today}
+
+\documentclass[11pt]{article}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{amssymb}
+\usepackage{listings}
+
+\begin{document}
+\maketitle
+
+
+\section*{Question 1}
+\begin{lstlisting}
+v.explored = true; v.layer = 0;
+initialize empty queue Q;
+add v to Q;
+while queue is not empty
+{
+	pop u from the head of Q;
+	for all neighbors w of node u
+	{
+		if(w.explored == false)
+		{
+			add w to the tail of Q;
+			w.explored = true;
+			w.layer = u.layer+1;
+			if(w.layer is even)
+				add w to group a;
+			else
+				add w to group b
+				
+			for all neighbors y of node w
+			{
+				if(y.layer % 2 == w.layer % 2)
+					return false;
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+
+\section*{Question 3}
+\begin{lstlisting}
+arbitrary starting element v;
+
+node x = BFS(v) //to find the furthest element from v
+node u = BFS(x) //furthest node from x
+BFS(x, u) //use this BFS to calculate the distance
+
+
+\section*{Question 5}
+\begin{lstlisting}
+s.explored = true;
+initialize empty queue Question
+add s to Question
+while queue is not empty
+{
+	pop u from the head of Q;
+	if(u has 0 neighbors)
+		then v = node u;
+	for all neighbors w of node u
+	{
+		if(w.explored == false)
+		{
+			add w to the tail of Q;
+			w.explored = true;
+		}
+	}
+}
+\end{lstlisting}
+
+
+
+
+
+\end{document}
