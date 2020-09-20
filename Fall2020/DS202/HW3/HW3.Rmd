@@ -1,5 +1,5 @@
 ---
-title: "HW3"
+title: "Homework #3"
 author: "Alec Meyer"
 date: "9/20/2020"
 output: html_document
@@ -60,5 +60,42 @@ p + geom_abline(intercept = 0, slope = 0.15) +
 <br /><br />
 Question 3
 ```{r}
-ggplot(tips, aes_string(x = "size", y = "day"))
+tips$day <- factor(tips$day,levels = c("Thur", "Fri", "Sat", "Sun"))
+ggplot(tips, aes(x = day, y = size)) +
+  geom_bar(stat="identity")
+
 ```
+Based off of the bar graph above it it surprising to see that Fridays are the days with the least amount of people. It is also interesting to see how low attendance is on Thursdays.
+Question 4
+```{r}
+tips$tiprate <- tips$tip / tips$total_bill
+ggplot(tips, aes(x = tiprate, color = sex, fill = sex)) +
+  geom_histogram()
+```
+<br />Based off of the graph shown, it appears that there were more females giving tips. It also appears that when it comes to tip percentage it is fairly equal between sexes.
+<br /><br />
+Question 5
+```{r}
+ggplot(tips, aes(x = tiprate, color = day, fill = day)) +
+  geom_histogram()
+```
+<br /> Based off of this graph it shows that Thursday is the best day for tip quantity but between the 4 days, tip rate stays fairly constant and unchanged.
+<br />
+<br />
+Question 6
+```{r}
+p <- ggplot(data = tips, aes(x = total_bill, y = tip, color = smoker, shape = sex)) + geom_point()
+p + geom_abline(intercept = 0, slope = 0.15) +
+    ggtitle("Tip Percentage") + 
+    xlab("Total Bill") + 
+    ylab("Tip Amount")
+```
+This visualization shows the variables, tip, total_bill, sex, and smoker. It appears that a lot of female smokers do not tip close to 15% if their bill is above around $20. If the bill is below that then the female smokers seem to tip almost always over 15%. In general though it does not seem to affect the tip whether you have a smoker/non-smoker or really if they are male or female. 
+<br />
+<br />
+Question 7
+```{r}
+ggplot(tips, aes(x = day, y = size, color = sex)) +
+  geom_bar(stat="identity")
+```
+This interesting looking barchart represents the comparison of number of a particular sex on a given day. As you can see Fridays are close to a 50/50 split between females and males paying the bill. Thursdays are a bit closer to a 60/40 split where females are paying the bill slightly more. Saturday and Sunday have the females paying a majority of the bill.
