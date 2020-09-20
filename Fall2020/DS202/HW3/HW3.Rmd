@@ -1,0 +1,64 @@
+---
+title: "HW3"
+author: "Alec Meyer"
+date: "9/20/2020"
+output: html_document
+---
+
+```{r}
+data(tips, package="reshape2")
+library(ggplot2)
+```
+
+Question 1 <br />
+```{r}
+p <- ggplot(data = tips, aes(x = total_bill, y = tip)) + geom_point()
+p + geom_abline(intercept = 0, slope = 0.15) +
+    ggtitle("Tip Percentage") + 
+    xlab("Total Bill") + 
+    ylab("Tip Amount")
+```
+This graph represents the relationship between total bill and tip amount. On average a customer tips anywhere between 15% to 20%. The line plotted is at 15% and we can see that there is a general trend around 15% possibly even slightly higher than 15%. Any point above the plotted line segment will be a tip above 15% and any point below the segment will be a tip below 15%.
+
+Question 2<br />
+There are two anomalies in this graph that stuck out to me. First of all, it appears that a higher total_bill results, on average, to a lower tip. In the graph shows bellow we can see that a majority of tips(points on the graph) are bellow the  15% line. 
+```{r}
+tips2 <- tips[tips$total_bill > 30, ]
+p <- ggplot(data = tips2, aes(x = total_bill, y = tip)) + geom_point()
+p + geom_abline(intercept = 0, slope = 0.15) +
+    ggtitle("Tip Percentage") + 
+    xlab("Total Bill") + 
+    ylab("Tip Amount")
+```
+<br />This calculation shows the percentage of tips over 15% at a $30+ total bill.
+```{r}
+percent <- tips2$tip / tips2$total_bill
+greater <- sum(percent >= 0.15)
+greater / length(percent)
+
+```
+As we can see, Only 25% of tips with a total bill greater than $30 are at least 15%.
+```{r}
+percent <- tips$tip / tips$total_bill
+greater <- sum(percent >= 0.15)
+greater / length(percent)
+```
+The above calculation shows that about 56% of all tips were at least 15%. This is very interesting to see and begs the question, why do higher total bills on average result in a lower tip percentage?
+<br /><br />
+The second interesting aspect of this previous plot is a strange pattern noticed between total bills of $10 to $17.
+```{r}
+tips3 <- tips[tips$total_bill >= 10 & tips$total_bill < 18, ]
+p <- ggplot(data = tips3, aes(x = total_bill, y = tip)) + geom_point()
+p + geom_abline(intercept = 0, slope = 0.15) +
+    ggtitle("Tip Percentage") + 
+    xlab("Total Bill") + 
+    ylab("Tip Amount") +
+    geom_abline(intercept = 2, slope = 0, color = 'red')
+  
+```
+<br />As you can see there are over 20 tips at just around the $2 mark spanning from $10 to $17.
+<br /><br />
+Question 3
+```{r}
+ggplot(tips, aes_string(x = "size", y = "day"))
+```
