@@ -9,7 +9,7 @@ public class RobotPathMain {
 		test.readInput("Grid.txt");
 				
 		System.out.println("\n planShortest:\n");
-//		test.quickPlan();
+		test.quickPlan();
 		test.output();
 //		
 //		System.out.println("\n quickPlan:\n");

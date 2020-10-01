@@ -6,6 +6,7 @@ public class PointNode extends Point {
 	
 	private String value;
 	private boolean visited;
+	private String direction;
 	//Constructors
 	public PointNode()
 	{
@@ -34,6 +35,17 @@ public class PointNode extends Point {
 	return Math.sqrt(xsq + ysq);
 		
 	}
+	
+	public void setDirection(String str)
+	{
+		direction = str;
+	}
+	
+	public String getDirection()
+	{
+		return direction;
+	}
+	
 	public String getValue()
 	{
 		return value;
@@ -54,21 +66,5 @@ public class PointNode extends Point {
 		this.value = str;
 	}
 	
-	public PointNode getSouth()
-	{
-		return new PointNode(this.x, this.y + 1);
-	}
-	public PointNode getNorth()
-	{
-		return new PointNode(this.x, this.y - 1);
-	}
-	public PointNode getEast()
-	{
-		return new PointNode(this.x + 1, this.y);
-	}
-	public PointNode getWest()
-	{
-		return new PointNode(this.x - 1, this.y);
-	}
 	
 }

@@ -10,7 +10,7 @@ class Graph
     private HashMap<PointNode, LinkedList<PointNode>> adj;
   
     // Constructor 
-    Graph(int v) 
+    Graph() 
     { 
     	adj = new HashMap<>();
     } 
@@ -56,5 +56,4 @@ class Graph
         	}
         }
     } 
-  
 } 
