@@ -68,7 +68,10 @@ public class RobotPath {
 		for(int i = 0; i < rows; i++)
 			for(int k = 0; k < columns; k++)
 				if(path[i][k] == null)
-					path[i][k] = new PointNode(k, i, "0");
+				{
+					path[i][k] = new PointNode(i, k, "0");
+					path[i][k].setDistance(dest);
+				}
 		
 		
 						
@@ -95,77 +98,67 @@ public class RobotPath {
 	
 	private void quickRec(PointNode point)
 	{
-//		if(point.equals(dest))
-//			return;
-		PointNode xy = shortestValidDist(start);
-		shortestValidDist(xy);
+		if(point.equals(dest))
+			return;
+
+		PointNode xy = shortestValidDist(point);	
+		quickRec(xy);
+//		PointNode xy = shortestValidDist(start);
+//		for(int i = 0; i < 13; i++)
+//			xy = shortestValidDist(xy);
 		
-		//quickRec(xy);
 	}
 	
 	private PointNode shortestValidDist(PointNode point)
 	{
-		//map to hold the distances and points to find the shortest valid option
-		HashMap<Double, PointNode> shortestMap = new HashMap<Double, PointNode>();
-		double n = -1;
-		double s = -1;
-		double e = -1;
-		double w = -1;
-
-		//north
-		if(point.y > 0 && path[point.y - 1][point.x].getValue().equals("0"))
-		{
-			n = path[point.y - 1][point.x].distanceTo(dest);
-			path[point.y - 1][point.x].setDirection("n");
-			shortestMap.put(n, path[point.y - 1][point.x]);
-			
+		PointNode[] arr = new PointNode[4]; //{n, e, s, w}
+		//North
+		if(point.x > 0) {
+			arr[0] = path[point.x - 1][point.y];
+			path[point.x - 1][point.y].setDirection("n");
+		}
+		//East
+		if(point.y < path[0].length) {
+			arr[1] = path[point.x][point.y + 1];
+			path[point.x][point.y + 1].setDirection("e");
+		}
+		//South
+		if(point.x < path.length) {
+			arr[2] = path[point.x + 1][point.y];
+			path[point.x + 1][point.y].setDirection("s");
+		}
+		//West
+		if(point.y > 0) {
+			arr[3] = path[point.x][point.y - 1];
+			path[point.x][point.y - 1].setDirection("w");
 		}
 		
-		//south
-		if(point.y > 0 && path[point.y + 1][point.x].getValue().equals("0"))
-		{
-			s = path[point.y + 1][point.x].distanceTo(dest);
-			path[point.y + 1][point.x].setDirection("s");
-			shortestMap.put(s, path[point.y + 1][point.x]);
-			
-		}
-		
-		//east
-		if(point.y > 0 && path[point.y][point.x + 1].getValue().equals("0"))
-		{
-			e = path[point.y][point.x + 1].distanceTo(dest);
-			path[point.y][point.x + 1].setDirection("e");
-			shortestMap.put(e, path[point.y][point.x + 1]);
-			
-		}	
-		
-		//west
-		if(point.y > 0 && path[point.y][point.x - 1].getValue().equals("0"))
-		{
-			w = path[point.y][point.x - 1].distanceTo(dest);
-			path[point.y][point.x - 1].setDirection("w");
-			shortestMap.put(w, path[point.y][point.x - 1]);
-		}
-
-		
-		//find the smallest
-		double[] shortList = {n, s, e, w};
-		double[] droppedNeg = new double[4];
-		//make sure all non -1 elements are on the left 
-		int k = 0;
+		PointNode first = new PointNode();
+		first.setDistanceManual(Double.MAX_VALUE);
 		for(int i = 0; i < 4; i++)
-			if(shortList[i] != -1)
-				droppedNeg[k++] = shortList[i];
-			
-		double first = shortList[0];
-		for(int i = 1; i < shortList.length; i++)
 		{
-			if(droppedNeg[i] < first && droppedNeg[i] != 0)
-				first = shortList[i];			
+			if(arr[i] != null && (arr[i].getValue().equals("0") || arr[i].getValue().equals("D")) && arr[i].getDistanceToDest() < first.getDistanceToDest())
+			{	
+				first = arr[i];
+			}
+			//checks if they are equal and compares x
+			else if(arr[i] != null && arr[i].getDistanceToDest() == first.getDistanceToDest())
+			{
+				if(arr[i].x < first.x)
+					first = arr[i];
+			}
+			//if they are still equal after checking x, it will check y
+			else if(arr[i] != null && arr[i].getDistanceToDest() == first.getDistanceToDest())
+			{
+				if(arr[i].y < first.y)
+					first = arr[i];
+			}
+				
 		}
 		
-		point.changeValue(shortestMap.get(first).getDirection());
-		return shortestMap.get(first);
+		System.out.println(first.x + ", " + first.y);
+		point.changeValue(first.getDirection());
+		return first;
 	}
 	
 	private String pathToString(PointNode[][] arr)

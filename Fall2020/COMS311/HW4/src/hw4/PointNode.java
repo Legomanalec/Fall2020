@@ -7,6 +7,7 @@ public class PointNode extends Point {
 	private String value;
 	private boolean visited;
 	private String direction;
+	private double distanceFromDest;
 	//Constructors
 	public PointNode()
 	{
@@ -28,13 +29,28 @@ public class PointNode extends Point {
 	//Methods
 	public double distanceTo(PointNode dest)
 	{
-	int y = this.y - dest.y;
-	int x = this.x - dest.x;
-	double xsq = Math.pow(x, 2);
-	double ysq = Math.pow(y, 2);
-	return Math.sqrt(xsq + ysq);
-		
+		int y = this.y - dest.y;
+		int x = this.x - dest.x;
+		double xsq = Math.pow(x, 2);
+		double ysq = Math.pow(y, 2);
+		return Math.sqrt(xsq + ysq);
+
 	}
+	
+	public void setDistance(PointNode dest)
+	{
+		distanceFromDest = this.distanceTo(dest);
+	}
+	public double getDistanceToDest()
+	{
+		return distanceFromDest;
+	}
+	
+	public void setDistanceManual(double dist)
+	{
+		distanceFromDest = dist;
+	}
+	
 	
 	public void setDirection(String str)
 	{
