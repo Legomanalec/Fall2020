@@ -35,19 +35,24 @@ GROUP BY f.fid, fname
 ORDER BY COUNT(ingredient.iid) desc;
 
 -- part e.
-SELECT f.fid, f.fname, r.iid, i.iname,
-cast(r.amount * i.caloriepergram as decimal(10,2)) AS calories
-FROM food f
-LEFT JOIN recipe AS r ON f.fid = r.fid
-LEFT JOIN ingredient AS i ON r.iid = i.iid
-WHERE f.fid
+SELECT f.fid, f.fname, ingredient.iid, ingredient.iname, 
+CAST(r.amount*ingredient.caloriepergram AS DECIMAL(10,2)) AS calories
+FROM food f 
+INNER JOIN recipe r ON f.fid = r.fid 
+INNER JOIN ingredient ON ingredient.iid = r.iid 
+WHERE f.fid IN
+(SELECT r.fid 
+FROM ingredient i 
+INNER JOIN recipe r ON i.iid = r.iid 
+WHERE iname = "Chicken") 
+ORDER BY fid ASC;
 
 
 -- part f.
--- SELECT f.fname, f.fid
--- FROM food f
--- LEFT JOIN recipe r ON f.fid = r.fid
--- LEFT JOIN ingredient i ON i.iid = r.iid
--- WHERE i.category = 'Vegetable'
--- AND i.caloriepergram * r.amount > 5
--- ORDER BY f.fid , f.fname DESC;
+SELECT f.fname, f.fid
+FROM food f
+LEFT JOIN recipe r ON f.fid = r.fid
+LEFT JOIN ingredient i ON i.iid = r.iid
+WHERE i.category = 'Vegetable'
+AND i.caloriepergram * r.amount > 5
+ORDER BY f.fid , f.fname DESC;
