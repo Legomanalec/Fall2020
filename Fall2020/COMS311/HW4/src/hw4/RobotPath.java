@@ -1,21 +1,30 @@
 package hw4;
 
+import java.awt.Point;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class RobotPath {
-	private String[][] path;
+	private PointNode[][] path;
+	private Queue<Integer> obstacles = new LinkedList<>();
+	private int rows;
+	private int columns;
+	private PointNode start;
+	private PointNode dest;
+	
+	//graph stuff
+	private LinkedList<Integer> adj[];
+	
+	
+	
+	
 	public void readInput(String FileName) throws IOException
 	{
-		int rows = 0;
-		int columns = 0;
-		int[] startDest = new int[4]; //first element = tuple of start coords, second element = tuple of end coords.
-		Queue<Integer> obstacles = new LinkedList<>();
 		File file = new File(FileName);
 		Scanner sn = new Scanner(file);
 		
@@ -27,13 +36,11 @@ public class RobotPath {
 				columns = sn.nextInt();
 			if(sn.next().equals("start"))
 			{
-				startDest[0] = sn.nextInt();
-				startDest[1] = sn.nextInt();
+				start = new PointNode(sn.nextInt(), sn.nextInt(), "S");
 			}
 			if(sn.next().equals("dest"))
 			{
-				startDest[2] = sn.nextInt();
-				startDest[3] = sn.nextInt();
+				dest = new PointNode(sn.nextInt(), sn.nextInt(), "D");
 			}
 			if(sn.next().equals("obstacles"))
 			{
@@ -43,58 +50,71 @@ public class RobotPath {
 		}
 		System.out.println("rows: " + rows + "\n" 
 				+ "columns: " + columns + "\n"
-				+ "start: " + startDest[0] + ", " + startDest[1] + "\n"
-				+ "end: " + startDest[2] + ", " + startDest[3] + "\n"
+				+ "start: " + start.x + ", " + start.y + "\n"
+				+ "end: " + dest.x + ", " + dest.y + "\n"
 				+ obstacles.toString());
 		
 		
-		path = new String[rows][columns];
-		path[startDest[0]][startDest[1]] = "S";
-		path[startDest[2]][startDest[3]] = "D";
+		path = new PointNode[rows][columns];
+		path[start.x][start.y] = start;
+		path[dest.x][dest.y] = dest;
 		while(!obstacles.isEmpty())
 		{
-			path[obstacles.poll()][obstacles.poll()] = "*";
+			int y = obstacles.poll();
+			int x = obstacles.poll();
+			path[y][x] = new PointNode(x, y, "*");
 		}
 		
 		for(int i = 0; i < rows; i++)
 			for(int k = 0; k < columns; k++)
 				if(path[i][k] == null)
-					path[i][k] = "0";
+					path[i][k] = new PointNode(k, i, "0");
 		
 		
-		File outputFile = new File("testOutput.txt");
-		PrintWriter pn = new PrintWriter(outputFile);
-		pn.print(pathToString(path));
-		pn.close();
 						
 	}
 	
 	public void planShortest()
 	{
-		
+	
 	}
 	
 	public void quickPlan()
 	{
 		
+		quickRec(start);
 	}
 	
-	public void output()
+	public void output() throws FileNotFoundException
+	{
+		File outputFile = new File("testOutput.txt");
+		PrintWriter pn = new PrintWriter(outputFile);
+		pn.print(pathToString(path));
+		pn.close();
+	}
+	
+	private void quickRec(PointNode point)
+	{
+
+	}
+	
+	private PointNode shortestValidDist(PointNode point)
 	{
 		
+		return null;
 	}
 	
-	
-	
-	private String pathToString(String[][] arr)
+	private String pathToString(PointNode[][] arr)
 	{
 		String str = "";
 		for(int i = 0; i < path.length; i++)
 		{
 			for(int k = 0; k < path[i].length; k++)
-				str += path[i][k] + "	";
+				str += path[i][k].getValue() + "	";
 			str += "\n";
 		}
 		return str;
 	}
+	
+	
 }

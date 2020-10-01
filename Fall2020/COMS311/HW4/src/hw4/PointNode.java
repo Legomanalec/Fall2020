@@ -39,6 +39,16 @@ public class PointNode extends Point {
 		return value;
 	}
 	
+	public boolean isVisited()
+	{
+		return visited;
+	}
+	
+	public void visit()
+	{
+		visited = true;
+	}
+	
 	public void changeValue(String str)
 	{
 		this.value = str;
