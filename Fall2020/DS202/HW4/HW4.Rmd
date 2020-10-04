@@ -1,0 +1,65 @@
+---
+title: "HW4"
+author: "Alec Meyer"
+date: "10/4/2020"
+output: html_document
+---
+
+```{r}
+library(nycflights13)
+library(tidyverse)
+library(ggplot2)
+
+```
+
+Question 1 <br />
+```{r}
+flights <- nycflights13::flights
+flights1 = flights %>% 
+  select(year, month, day, flight)
+#duplicated(flights1)
+```
+
+Question 2<br />
+```{r}
+airports <- nycflights13::airports
+airports1 = airports %>%
+  select(name, lat, lon, faa)
+flights2 = flights %>%
+  select(origin, dest, arr_delay)
+flights3 = left_join(flights2, airports1, by = c("origin" = "faa"))
+flights3 = left_join(flights3, airports1, by = c("dest" = "faa"))
+flights3
+
+```
+
+Question 3<br />
+```{r}
+weather <- nycflights13::weather
+weather1 = weather %>%
+  select(visib, year, month, day, origin)
+flights4 = flights %>%
+  select(origin, year, month, day, dep_delay)
+flights5 = left_join(flights4, weather1)
+flights5 
+```
+
+Question 4<br />
+```{r}
+flights6 = flights3 %>%
+  select(arr_delay, dest, name.y) %>%
+  filter(arr_delay > 30) %>%
+  group_by(name.y) %>% 
+  summarize(avg_delay = mean(arr_delay)) %>%
+  arrange(desc(avg_delay))
+flights6
+
+```
+ 1 Cherry Capital Airport                 
+ 2 Akron Canton Regional Airport        
+ 3 Honolulu Intl
+
+Question 5<br />
+
+Two derechos passed through the eastern part of the united states. This caused many airports to shut down an delay flights for a much greater time than usual.
+
