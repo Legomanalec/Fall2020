@@ -7,13 +7,17 @@ public class RobotPathMain {
 	{
 		RobotPath test = new RobotPath();
 		test.readInput("Grid.txt");
-				
-		System.out.println("\n planShortest:\n");
+		
+		System.out.println("\n quickPlan:\n");
 		test.quickPlan();
 		test.output();
-//		
-//		System.out.println("\n quickPlan:\n");
-//		test.quickPlan();
-//		test.output();
+		
+		System.out.println("\n planShortest:\n");
+		test.planShortest();
+		test.output();
+		
+
+		
+		
 	}
 }
