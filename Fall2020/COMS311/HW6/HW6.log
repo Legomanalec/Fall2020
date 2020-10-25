@@ -1,0 +1,174 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.9)  24 OCT 2020 21:19
+entering extended mode
+**./HW6.tex
+(HW6.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-09-03>
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls"
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/base\bk11.clo"
+File: bk11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count168
+\c@chapter=\count169
+\c@section=\count170
+\c@subsection=\count171
+\c@subsubsection=\count172
+\c@paragraph=\count173
+\c@subparagraph=\count174
+\c@figure=\count175
+\c@table=\count176
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.
+sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts
+.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings
+.sty"
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.s
+ty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+\lst@mode=\count177
+\lst@gtempboxa=\box45
+\lst@token=\toks17
+\lst@length=\count178
+\lst@currlwidth=\dimen135
+\lst@column=\count179
+\lst@pos=\count180
+\lst@lostspace=\dimen136
+\lst@width=\dimen137
+\lst@newlines=\count181
+\lst@lineno=\count182
+\lst@maxwidth=\dimen138
+
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.
+sty"
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count183
+\lst@skipnumbers=\count184
+\lst@framebox=\box46
+)
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings
+.cfg"
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backe
+nd-pdftex.def"
+File: l3backend-pdftex.def 2020-09-01 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count185
+\l__pdf_internal_box=\box47
+) (HW6.aux)
+\openout1 = `HW6.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+\c@lstlisting=\count186
+LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+
+
+("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+
+ ("C:\Users\Alec Meyer\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+{C:/Users/Alec Meyer/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 16--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--45
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 56--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--70
+
+ []
+
+
+Overfull \hbox (47.34424pt too wide) in paragraph at lines 83--84
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (47.34424pt too wide) in paragraph at lines 85--86
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+[3] [4] (HW6.aux) ) 
+Here is how much of TeX's memory you used:
+ 2568 strings out of 481199
+ 34617 string characters out of 2903217
+ 273873 words of memory out of 3000000
+ 18206 multiletter control sequences out of 15000+200000
+ 542538 words of font info for 57 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 28i,6n,36p,157b,971s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Alec Meyer/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Alec Meyer/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Alec Meyer/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Alec Mey
+er/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/U
+sers/Alec Meyer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi8.pfb><C:/Users/Alec Meyer/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr10.pfb><C:/Users/Alec Meyer/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/Alec Meyer/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Alec Meyer/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Alec Meyer
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/User
+s/Alec Meyer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb><C:/Users/Alec Meyer/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmsy6.pfb><C:/Users/Alec Meyer/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb>
+Output written on HW6.pdf (4 pages, 130592 bytes).
+PDF statistics:
+ 67 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
