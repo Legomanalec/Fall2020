@@ -1,0 +1,10 @@
+    S   se   se   se   se   se   se    s    0    0
+   se   se   se   se   se   se   se    s    0    0
+   se   se   se   se   se   se   se    s    0    0
+    e    e    e    e    e    e   se    s    0    0
+    0    0    0    0    0    *    e    s    0    0
+    0    0    0    *    *    D    *    s    0    0
+    0    0    0    *    0    n    w    w    0    0
+    0    0    0    *    *    *    *    0    0    0
+    0    0    0    0    0    0    0    0    0    0
+    0    0    0    0    0    0    0    0    0    0

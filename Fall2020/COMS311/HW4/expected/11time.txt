@@ -1,0 +1,2 @@
+Exploration Time: 0.04100 seconds
+Path Generation Time: 0.03300 seconds

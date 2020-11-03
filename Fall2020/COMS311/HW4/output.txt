@@ -1,0 +1,161 @@
+Test cases [1-19: 210 pts]: Verifies on small grid (a)
+            whether the outputs are correct and (b) whether the
+            outputs are produced without enumerating shortest paths.
+
+            Each should take less a second. The timout of 10 seconds
+            is used. Any tests that do not complete before 10 seconds
+            is considered a failed test.
+Test Case:  1
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  2
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test unsuccessful
+********************************************
+Test Case:  3
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  4
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test unsuccessful
+********************************************
+Test Case:  5
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  6
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test unsuccessful
+********************************************
+Test Case:  7
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  8
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  9
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  10
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  11
+Testing planShortest
+Timed-out
+Test unsuccessful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  12
+Testing planShortest
+Timed-out
+Test unsuccessful
+........................
+Testing quickPlan
+Test unsuccessful
+********************************************
+Test Case:  13
+Testing planShortest
+Timed-out
+Test unsuccessful
+........................
+Testing quickPlan
+Test unsuccessful
+********************************************
+Test Case:  14
+Testing planShortest
+Timed-out
+Test unsuccessful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  15
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  16
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test unsuccessful
+********************************************
+Test Case:  17
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  18
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Test Case:  19
+Testing planShortest
+Test successful
+........................
+Testing quickPlan
+Test successful
+********************************************
+Points for Grids 20-25 [36pts] will be given based on the
+            timing results.  These cases are for larger grid sizes
+            with the smaller problem instance.
+
+            Each of them should take less than a second to complete
+            planShortest.
+
+            Different variations are considered just in case, there
+            are runtime errors due to some other problems in the
+            encoding
+Timed-out : test case 22
+Timed-out: test case 23
+Timed-out: test case 24
+Timed-out: test case 25
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Total Points:  173
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,210 @@
+#!/bin/bash
+
+## RobotPath.java, HW4.java, tests/ and expected/ should be present in
+## the same folder as this script
+
+
+## generic timeout for linux-based+mac 
+function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
+
+p=4;
+
+## name of the output file
+output=output.txt;
+  
+
+# compile and produce the output
+# this will produce several outputs of the form
+# shortest-i.txt and quick-i.txt
+javac HW4.java
+ 
+Test="Grid";
+
+## expected file name suffix
+X1="short.txt";
+Y1="quick.txt";
+
+## generated file name
+a="std-short.txt";
+b="std-quick.txt";
+
+      echo "Test cases [1-19: 210 pts]: Verifies on small grid (a)
+            whether the outputs are correct and (b) whether the
+            outputs are produced without enumerating shortest paths.
+
+            Each should take less a second. The timout of 10 seconds
+            is used. Any tests that do not complete before 10 seconds
+            is considered a failed test." >| $output;
+flag=0;
+      for i in {1..19}
+      do
+	  echo $i;
+	  echo "Test Case: " $i >> $output;
+	  a1="$i""$X1";   ## create correct file name for expected output
+
+	  echo "Testing planShortest" >> $output;
+	  Test1="./tests/$Test""$i"".txt";  ## get the file 
+
+## run with large timeouts	  
+           timeout 10 java HW4 s $Test1; to=$?;
+
+	  if [ $to -gt 0 ]; ## timeout
+	  then
+	      echo "Timed-out" >> $output;
+	  fi;
+
+
+## quickfix for script
+          res=-1;
+	  if [ -f "$a" ]
+          then
+             res=($(diff -y --suppress-common-lines $a "./expected/$a1" | wc -l));
+          fi;
+	  if [ $res -eq -1 ]  ## means nothing got generated; runtime/compiletime errors
+	  then
+             echo "Test files are not generated: compilation/runtime error" >> $output
+          fi;    
+	  if [ $res -eq 0 ] ## outputs match
+	  then 
+             if [ $i -le 10 ]; ## 1-10: 6 points each
+             then 
+		 p=$((p+6));
+                 if [ $i -eq 5 ]; then flag=1; fi;    
+             elif [ $i -le 21 ]; ## rest: 5 points each 
+             then  
+                 p=$((p+5));
+             fi;     		 
+	     echo "Test successful" >> $output; 
+          fi;
+
+	  if [ $res -gt 0 ]  ## outputs do not match
+          then
+             echo "Test unsuccessful" >> $output;
+          fi;
+
+   #####################################
+
+          b1="$i""$Y1"; ## create the correct file name for expected output
+
+	  echo "........................" >> $output;
+	  echo "Testing quickPlan" >> $output;
+	  Test1="./tests/$Test""$i"".txt"; ## get the correct file
+
+           timeout 10 java HW4 q $Test1; to=$?;
+
+	  if [ $to -gt 0 ]; 
+	  then
+	      echo "Timed-out" >> $output;
+	  fi;
+
+
+	  res=-1;
+	  if [ -f "$b" ]
+	  then    
+             res=($(diff -y --suppress-common-lines $b "./expected/$b1" | wc -l));
+          fi;
+	  if [ $res -eq -1 ]
+	  then
+             echo "Test files are not generated: compilation/runtime error" >> $output
+          fi;    
+	  if [ $res -eq 0 ]
+	  then 
+             if [ $i -le 10 ]; 
+             then 
+		 p=$((p+6));     
+             elif [ $i -le 19 ];
+             then  
+                 p=$((p+5));
+             fi;     		 
+	     echo "Test successful" >> $output;
+          fi;
+	  if [ $res -gt 0 ]
+          then
+             echo "Test unsuccessful" >> $output;
+          fi;
+	  echo "********************************************" >> $output;
+
+
+
+	  
+      done
+
+################################################################
+      echo "Points for Grids 20-25 [36pts] will be given based on the
+            timing results.  These cases are for larger grid sizes
+            with the smaller problem instance.
+
+            Each of them should take less than a second to complete
+            planShortest.
+
+            Different variations are considered just in case, there
+            are runtime errors due to some other problems in the
+            encoding" >> $output;
+if [ $flag -eq 1 ]; then
+## Next are all checking whether the implementation is effective.
+      echo "20";
+      timeout 5 java HW4 t ./tests/Grid20.txt; to=$?;
+      if [ $to -gt 0 ]; 
+      then
+	  echo "Timed-out: test case 20" >> $output;
+      else 
+           p=$((p+6));
+      fi;
+
+      echo "21";
+      timeout 5 java HW4 t ./tests/Grid21.txt; to=$?;
+      if [ $to -gt 0 ]; 
+      then
+	  echo "Timed-out: test case 21" >> $output;
+      else       
+	  p=$((p+6));
+      fi;
+
+      echo "22";
+      timeout 5 java HW4 t ./tests/Grid22.txt; to=$?;
+      if [ $to -gt 0 ]; 
+      then
+	  echo "Timed-out : test case 22" >> $output;
+      else
+            p=$((p+6));
+      fi;
+      
+      echo "23";
+      timeout 5 java HW4 t ./tests/Grid23.txt; to=$?;
+      if [ $to -gt 0 ]; 
+      then
+	  echo "Timed-out: test case 23" >> $output;
+      else 
+           p=$((p+6));
+      fi;
+
+      echo "24";
+      timeout 5 java HW4 t ./tests/Grid24.txt; to=$?;
+      if [ $to -gt 0 ]; 
+      then
+	  echo "Timed-out: test case 24" >> $output;
+      else
+           p=$((p+6));
+      fi;
+      
+      echo "25";
+      timeout 5 java HW4 t ./tests/Grid25.txt; to=$?;
+      if [ $to -gt 0 ]; 
+      then
+	  echo "Timed-out: test case 25" >> $output;
+      else 
+           p=$((p+6));
+      fi;
+fi;
+
+      echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> $output;
+      echo "Total Points: " $p >> $output;
+
+# cleanup
+    rm *.class;
+    rm *std-quick.txt;  ## in case you want to see these files comment
+    rm *std-short.txt;
+    rm *std-time.txt;
+     echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> $output;
+
+
