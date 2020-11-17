@@ -1,0 +1,42 @@
+---
+title: "HW5"
+author: "Alec Meyer"
+date: "11/1/2020"
+output: html_document
+---
+
+```{r}
+data <- readr::read_csv("2019_Iowa_Liquor_Sales.csv")
+library(lubridate)
+library(tidyverse)
+library(ggplot2)
+```
+
+Question 1<br />
+```{r}
+data$Date = mdy(data$Date)
+
+
+head(data$lon)
+```
+
+Question 2<br />
+```{r}
+ggplot(data, aes(x = data$'Category Name')) + geom_bar() +
+  theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+```
+This visual shows the count of each category
+of alcohol sold.
+American Vodkas are the most popular based off of this visualization.
+
+Question 3<br />
+```{r}
+ggplot(data, aes(x = week(data$Date))) + geom_bar() +
+  theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+```
+There are some weeks that have spikes. I would assume these weeks are weeks of an 
+at home football game.
+
+Question 4<br />
+```{r}
+```
