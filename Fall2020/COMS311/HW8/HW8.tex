@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\title{COM S 311 HW 8}
+\author{Alec Meyer}
+\date{November 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+
+$(i, j + 1) = 2 \\*
+(i + 1, j) = 2 \\*
+(i + 1, j+ 1) = 3$ \\*
+M x N states
+
+\begin{lstlisting}
+//down
+for(i = 2; i < M; i++)
+    R(i, 1) = R(i - 1,1) + DiamondValue(i,1) - 2
+    
+//right
+for(j = 2; i < N; i++)
+    R(1, j) = R(1,j - 1) + DiamondValue(1,j) - 2
+    
+//diagonal
+for(i = 2; i < M; i++)
+    for(j = 2; i < N; i++)
+        R(i, j) = 
+            max(R(i - 1,1), R(1,j - 1), R(i - 1, j - 1) + DiamondValue(i, j)
+
+return R(M, N)
+\end{lstlisting}
+T(n) = T(N) + T(M) + T(n)\\*
+Since we theoretically traverse the entire array the runtime will be:\\*
+O(MN)
+
+\section*{Question 2}
+n = p*q = 21\\*
+r = (p-1)*(q-1) = 12\\*
+public = (e, n) = (5, 21)\\*
+private = (d, n) = (d, 21)\\*
+12 * 2 + 1 = 25 / 5 = 5\\*
+k = 2\\*
+d = 5\\*
+private = (5, 21)\\*
+$C = 12^5 mod 21$\\*
+$12^5 mod 21 = 3$\\*
+encrypted 12 = 3\\*
+$3^5 mod 21 = 12$
+\section*{Question 3}
+\end{document}
