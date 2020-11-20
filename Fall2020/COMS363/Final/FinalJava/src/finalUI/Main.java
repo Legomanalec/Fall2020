@@ -198,8 +198,6 @@ public class Main {
 					int month = Integer.parseInt(JOptionPane.showInputDialog("Enter a month"));
 					int year = Integer.parseInt(JOptionPane.showInputDialog("Enter a year"));
 					
-					stmt.executeUpdate("CREATE INDEX screenNameInd\r\n" + 
-										"ON users (screenName);");
 					sqlQuery = "SELECT COUNT(U1.tid), mentioned.screenName AS user_name, mentioned.state AS mentionedUserState, GROUP_CONCAT(DISTINCT posters.screenName) as postingUsers\r\n" + 
 							"FROM users as mentioned\r\n" + 
 							"JOIN usertweets as U1 on U1.screenName = mentioned.screenName\r\n" + 
@@ -209,8 +207,6 @@ public class Main {
 							"GROUP BY mentioned.screenName\r\n" + 
 							"ORDER BY COUNT(U1.tid) DESC\r\n" + 
 							"LIMIT " + k + ";";
-					stmt.executeUpdate("ALTER TABLE users\r\n" + 
-										"DROP INDEX screenNameInd;");
 					ResultSet rs = stmt.executeQuery(sqlQuery);
 					
 					while(rs.next()) {
