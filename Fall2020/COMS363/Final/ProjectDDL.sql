@@ -11,10 +11,11 @@ name varchar(100),
 numFollowers int,
 numFollowing int,
 category varchar(40) CHECK (category IN( 'senate_group', 'presidential_candidate', 'reporter', 'Senator', 'General', null)),
-subCategory varchar(40) CHECK(subCategory IN('GOP', 'Democrat', 'na', null)),
+subcategory varchar(40) CHECK(subcategory IN('GOP', 'Democrat', 'na', null)),
 state varchar(40) default 'na',
 Primary Key(screenName)
 );
+
 
 Create Table Tweets(
 tid bigint NOT NULL,
@@ -29,8 +30,8 @@ Foreign Key(userScreenName) References Users(screenName) ON DELETE CASCADE
 Create Table Hashtags(
 name varchar(40) NOT NULL,
 tid bigint NOT NULL,
-Primary Key(name),
-Foreign Key(tid) References Tweets(tid)
+PRIMARY KEY( name, tid ),
+FOREIGN KEY(tid) references tweets(tid) ON DELETE CASCADE
 );
 
 Create Table Urls(
@@ -43,8 +44,11 @@ Foreign Key(tid) References Tweets(tid)
 Create Table UserTweets(
 tid bigint NOT NULL,
 screenName varchar(100) NOT NULL,
-Primary Key(tid,screenName),
+Primary Key(tid, screenName),
 Foreign Key(tid) References Tweets(tid),
 Foreign Key(screenName) References Users(screenName)
 );
+
+
+
 

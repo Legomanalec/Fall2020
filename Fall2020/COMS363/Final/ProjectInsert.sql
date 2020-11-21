@@ -18,7 +18,7 @@ LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/user.csv'
 REPLACE INTO TABLE users
 FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n'
 IGNORE 1 LINES
-(screenName, name, subCategory, category, state, numFollowers, numFollowing);
+(screenName, name, subcategory, category, state, numFollowers, numFollowing);
 
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tagged.csv'
 REPLACE INTO TABLE hashtags
@@ -26,8 +26,9 @@ FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (tid, name);
 
-LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/tweets.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/mentioned.csv'
 REPLACE INTO TABLE usertweets
 FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n'
 IGNORE 1 LINES
-(tid, @text, @rtcount, @retweeted, @posted, screenName);
+(tid, screenName);
+

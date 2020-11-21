@@ -1,60 +1,54 @@
 
 
--- Q3
-SELECT COUNT(DISTINCT users.state) AS statenum, group_concat(DISTINCT users.state) as states, hashtags.name
+-- Question 3 when k = 5, year = 2016
+SELECT COUNT(DISTINCT users.state) AS numStates, group_concat(DISTINCT users.state) as States, hashtags.name
 FROM hashtags, tweets, users
-WHERE users.state != "" AND users.state != "na" AND YEAR(tweets.createdTime) = '2016' AND tweets.tid = hashtags.tid
+WHERE users.state != "" and users.state != "na" and year(tweets.createdTime) = '2016' AND tweets.tid = hashtags.tid
 AND users.screenName = tweets.userScreenName 
 GROUP BY hashtags.name
-ORDER BY statenum DESC
+ORDER BY numStates DESC
 LIMIT 5;
 
--- Q7
-SELECT count(tweets.tid) AS tweet_count, users.screenName AS screen_name, users.category
+-- Question 7 when k =5, hashtag = "GOPDebate", state = "NC", nonth = 2, year = 2016
+SELECT count(tweets.tid), users.screenName, users.category
 FROM users
-JOIN tweets ON users.screenName = tweets.userScreenName
-JOIN hashtags ON tweets.tid = hashtags.tid
-WHERE hashtags.name = "GOPDebate"
-AND users.state = "NC"
-AND MONTH(tweets.createdTime) = 2
-AND YEAR(tweets.createdTime) = 2016
-GROUP BY users.screenName
-ORDER BY count(tweets.tid) DESC
-LIMIT 5;
+join tweets on users.screenName = tweets.userScreenName
+join hashtags on tweets.tid = hashtags.tid
+where hashtags.name = "GOPDebate"
+and users.state = "NC"
+and month(tweets.createdTime) = 2
+and year(tweets.createdTime) = 2016
+group by users.screenName
+order by count(tweets.tid) DESC
+limit 5;
 
--- Q9
+-- Question 9 Democrat
 
-SELECT users.screenName AS screen_name, users.subcategory, users.numFollowers
-FROM users
-WHERE users.subcategory = 'GOP'
-ORDER BY users.numFollowers DESC
-LIMIT 5;
-
-SELECT users.screenName, users.subcategory, users.numFollowers
+SELECT users.screenName, users.subCategory, users.numFollowers
 FROM users
 WHERE users.subcategory = 'Democrat'
 ORDER BY users.numFollowers DESC
 LIMIT 5;
 
 
--- Q16
-SELECT users.screenName AS user_name, users.category, tweets.text AS texts, tweets.retweetCt, urls.address
+-- Question 16 when k = 5, month = 2, year = 2016
+SELECT users.screenName, users.category, tweets.text, tweets.retweetCt, urls.address
 From users
-JOIN tweets ON tweets.userScreenName = users.screenName
-JOIN urls ON urls.tid = tweets.tid
-WHERE MONTH(tweets.createdTime) = 2
-AND YEAR(tweets.createdTime) = 2016
-ORDER BY tweets.retweetCt DESC
-LIMIT 5;
+Join tweets on tweets.userScreenName = users.screenName
+Join urls on urls.tid = tweets.tid
+Where month(tweets.createdTime) = 2
+And year(tweets.createdTime) = 2016
+Order by tweets.retweetCt desc
+limit 5;
 
 -- Q18
-SELECT users.screenName AS mentionedUser, users.state AS mentionedUserState, GROUP_CONCAT(DISTINCT posters.screenName) as postingUsers
-FROM users 
-JOIN usertweets as U1 ON U1.screenName = users.screenName
-JOIN tweets ON tweets.tid = U1.tid AND MONTH(tweets.createdTime) = 1 AND YEAR(tweets.createdTime) = 2016
-JOIN users as posters ON posters.screenName = tweets.userScreenName
-WHERE posters.subcategory IN('GOP')  
-GROUP BY users.screenName
+SELECT COUNT(U1.tid), mentioned.screenName AS user_name, mentioned.state AS mentionedUserState, GROUP_CONCAT(DISTINCT posters.screenName) as postingUsers
+FROM users as mentioned
+JOIN usertweets as U1 on U1.screenName = mentioned.screenName
+JOIN tweets ON tweets.tid = U1.tid AND month(tweets.createdTime) = 1 AND year(tweets.createdTime) = 2016
+JOIN users as posters on posters.screenName = tweets.userScreenName
+WHERE posters.subcategory in('GOP')  
+GROUP BY mentioned.screenName
 ORDER BY COUNT(U1.tid) DESC
 LIMIT 5;
 
@@ -63,10 +57,10 @@ SELECT hashtags.name, COUNT(tweets.tid) as num_uses
 FROM hashtags
 JOIN tweets ON tweets.tid = hashtags.tid
 JOIN users ON users.screenName = tweets.userScreenName 
-WHERE users.subcategory IN('GOP') AND (MONTH(tweets.createdTime) = 1 OR MONTH(tweets.createdTime) = 2 OR MONTH(tweets.createdTime) = 3) AND YEAR(tweets.createdTime) = 2016
-GROUP BY hashtags.name
-ORDER BY num_uses
-DESC LIMIT 5;
+where users.subCategory in('GOP') AND (month(tweets.createdTime) = 1 OR month(tweets.createdTime) = 2 OR month(tweets.createdTime) = 3) AND year(tweets.createdTime) = 2016
+group by hashtags.name
+order by num_uses
+desc LIMIT 5;
 
 
 
