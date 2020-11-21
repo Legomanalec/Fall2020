@@ -1,0 +1,38 @@
+Alec Meyer
+COM S 363 Final Individual Work Log 
+11/05/2020
+* Team talked about project
+* Began work on ER diagram
+   * Alec’s task:
+      * Create hashtags table
+      * Create urls table
+      * Create usersTweets table
+	These were all fairly simple. Lots of review from eariler in the year though.
+
+11/07/2020
+* Began work on data insertion
+   * Alec’s task: 
+      * Add LOAD DATA INFILE statements based on excel columns - This took longer than it should have. I couldn't find "Program Data" for the life of me.
+      * Created createDBUsers.sql - Was tricky to figure out how to create the username as piazza and modules differed.
+* Began work on queries 
+   * Alec’s task:
+      * Q3, Q7, Q18 & Q23 - Q3 and Q18 were really hard, took me a while to figure out how to return arrays of values in MySQL. Q7 and Q23 where easier and straight forward.
+
+
+11/12/2020
+* Began work on optimizations
+   * Alec’s task:
+      * Optimize Q3, Q7, Q18 & Q23 - tested random indexes till they would decrease time, couldn't find ones fro 3 and 23 so I used bufferpool size adjustments
+      * Filled out Optimization table - Took a long time 
+
+
+11/16/2020
+* Began work on Java project
+   * Alec’s task:
+      * Create java project with help of adam - we sat down and cranked it out this day.
+      * Used java code from class - used code from the TransactionDB provided to us by Professor Pak.
+
+
+11/19/2020
+* Debug
+   * We both went through every query multiple times on the java project to make sure it was bug free and ready to submit

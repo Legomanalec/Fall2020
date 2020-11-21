@@ -1,0 +1,52 @@
+﻿Alec Meyer
+Adam LaRocque
+COM S 363 Final Work Log 
+11/05/2020
+* Team talked about project
+* Began work on ER diagram
+   * Adam’s task:
+      * Create tweets table
+      * Create users table
+   * Alec’s task:
+      * Create hashtags table
+      * Create urls table
+      * Create usersTweets table
+
+
+11/07/2020
+* Began work on data insertion
+   * Adam’s task:
+      * Read me Excel columns
+      * Created EnsureDataConsistency.sql
+   * Alec’s task: 
+      * Add LOAD DATA INFILE statements based on excel columns
+      * Created createDBUsers.sql
+* Began work on queries 
+   * Adam’s task:
+      * Q9, Q16, I & D
+   * Alec’s task:
+      * Q3, Q7, Q18 & Q23
+
+
+11/12/2020
+* Began work on optimizations
+   * Adam’s task:
+      * Optimize Q9 & Q16
+      * Add optimizations to the After.sql
+   * Alec’s task:
+      * Optimize Q3, Q7, Q18 & Q23
+      * Filled out Optimization table 
+
+
+11/16/2020
+* Began work on Java project
+   * Adam’s task:
+      * Watch Alec’s screen and help create Java project 
+   * Alec’s task:
+      * Create java project with help of adam
+      * Used java code from class
+
+
+11/19/2020
+* Debug
+   * We both went through every query multiple times on the java project to make sure it was bug free and ready to submit

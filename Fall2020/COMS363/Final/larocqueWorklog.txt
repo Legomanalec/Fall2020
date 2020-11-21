@@ -1,0 +1,35 @@
+Adam LaRocque
+COM S 363 Final Individual Work Log 
+
+11/05/2020
+* We talked about the project and how we are going to work on it
+* Went over collaboration methods
+* Began work based on ER diagram, after we had a good understanding we made the tables
+   * Adam’s tasks:
+      * Create tweets table - based on ER diagram
+      * Create users table - also based on ER diagram
+
+11/07/2020
+* Began work on data insertion
+   * Adam’s tasks:
+      * Read me Excel columns - basic readme for installation and running, password is 363F2020
+      * Created EnsureDataConsistency.sql - changed the state attibute of each user in user table to be the abbreviation as opposed to the actual name, a lot of typing
+* Began work on queries 
+   * Adam’s tasks:
+      * Q9, Q16, I & D - I and D were straightforward, just needed to make sure to assign all the correct privileges
+		Q9 and Q16 were more involved, no major problems after I figured out the joins
+
+11/12/2020
+* Began work on optimizations
+   * Adam’s task:
+      * Optimize Q9 & Q16 - couldn't increase database buffer pool size
+      * Added optimizations to the After.sql and filled in table
+
+11/16/2020
+* Began work on Java project
+   * Adam’s task:
+      * Watch Alec’s screen and help create Java project - Alec is better at this aspect of the project than me, he got a better score on HW4. Although he did the typing, we were working on this together
+
+11/19/2020
+* Debug Java project
+   * Went through each query multiple times on the java project to make sure it was bug free and ready to submit
