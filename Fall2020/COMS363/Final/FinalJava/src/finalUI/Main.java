@@ -5,7 +5,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -60,6 +62,7 @@ public class Main {
 		}
 		return result;
 	}
+	
 	
 
 
@@ -259,11 +262,41 @@ public class Main {
 					}
 				}
 				
-				//TODO
+
 				else if (option.equals("I")) {
+					String screenName=JOptionPane.showInputDialog("Enter screen name:");
+					String name=JOptionPane.showInputDialog("Enter name:");
+					int numFollowers=Integer.parseInt(JOptionPane.showInputDialog("Enter number of followers:"));
+					int numFollowing=Integer.parseInt(JOptionPane.showInputDialog("Enter number of following:"));
+					String category=JOptionPane.showInputDialog("Enter category:");
+					String subCategory=JOptionPane.showInputDialog("Enter subCategory:");
+					String state=JOptionPane.showInputDialog("Enter state:");
+					
+					sqlQuery = "INSERT INTO users (screenName,name,numFollowers,numFollowing,category,subCategory,state) values('" + screenName + "', '"+ name + "'," + numFollowers + ", " + numFollowing + ", '" + category + "', '" + subCategory + "', '" + state + "');";
+					
+					stmt.executeUpdate(sqlQuery);
 				}
-				//TODO
+				
 				else if (option.equals("D")) {
+					String screenName = JOptionPane.showInputDialog("Enter screen name");
+					
+					sqlQuery = "SELECT screenName FROM users WHERE screenName = '" + screenName + "';";
+					ResultSet rs = stmt.executeQuery(sqlQuery);
+					rs.next();
+					try {
+					if(rs.getString(1).equals(screenName))
+						stmt.executeQuery("SET FOREIGN_KEY_CHECKS=0;");
+						stmt.executeUpdate("DELETE FROM  hashtags WHERE name = '" + screenName +"';");
+						stmt.executeUpdate("DELETE FROM  tweets WHERE userScreenName = '" + screenName +"';");
+						stmt.executeUpdate("DELETE FROM users WHERE screenName = '" + screenName + "';");
+					}
+					catch(SQLException e) {
+						System.out.println("User doesn't exsist");
+					}
+					
+				
+						
+					
 				}
 				
 				else if (option.equals("e")) {

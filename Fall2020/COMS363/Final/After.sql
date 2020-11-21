@@ -60,3 +60,10 @@ WHERE users.subCategory IN('GOP') AND (MONTH(tweets.createdTime) = 1 OR MONTH(tw
 GROUP BY hashtags.name
 ORDER BY num_uses
 DESC LIMIT 5;
+
+
+
+
+
+
+INSERT INTO users (screenName,name,numFollowers,numFollowing,category,subCategory,state) values('TEST', 'TEST',234, 234, 'reporter', 'GOP', 'NC');
